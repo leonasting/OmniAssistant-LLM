@@ -1,0 +1,10 @@
+streamlit
+langchain
+google-generativeai
+IPython
+PyPDF2
+langchain-google-genai
+langchain-community
+pdf2image
+chromadb
+sqlite3

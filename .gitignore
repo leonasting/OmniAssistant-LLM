@@ -1,0 +1,10 @@
+.venv
+__pycache__/
+.DS_Store
+secrets.toml
+.vscode/settings.json
+
+venv/
+faiss_index/
+*.bak
+reference/
