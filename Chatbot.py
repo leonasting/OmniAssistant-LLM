@@ -21,6 +21,10 @@ def get_gemini_response(chat,question):
 def main():
     st.set_page_config(page_title="Chatbot")
     google_api_key = None
+    if 'google_api_key'in  st.session_state:
+        google_api_key = st.session_state['google_api_key']
+    
+    
     with st.sidebar:
         if not google_api_key:
             "Please Update the API Key to use the app"
@@ -34,6 +38,8 @@ def main():
             st.stop()
         else:
             genai.configure(api_key=google_api_key)
+            st.session_state['google_api_key'] = google_api_key
+
     if google_api_key:
         st.title("💬 Chatbot")
         st.caption("🚀 A streamlit chatbot powered by Google Generative LLM")
