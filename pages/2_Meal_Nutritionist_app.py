@@ -124,12 +124,13 @@ def main():
             #     res.append(chunk.text)
             
             st.session_state['chat_history'].append(("Bot", response))
-            
-        if st.session_state['chat_history']:
-            st.subheader("The Chat History is")
-            
-            for role, text in st.session_state['chat_history']:
-                st.write(f"{role}: {text}")
+        with st.sidebar:   
+            with st.expander("history", expanded=False):    
+                if st.session_state['chat_history']:
+                    #st.subheader("The Chat History is")
+                    
+                    for role, text in st.session_state['chat_history']:
+                        st.write(f"{role}: {text}")
 if __name__ == "__main__":
     main()           
 
