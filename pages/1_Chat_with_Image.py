@@ -25,7 +25,7 @@ def main():
     google_api_key = None
     if 'google_api_key'in  st.session_state:
         google_api_key = st.session_state['google_api_key']
-    with st.sidebar:
+    with st.expander("Settings", expanded=True):
         if not google_api_key:
             google_api_key = st.text_input("Generative API Key", key="google_api_key", type="password")
             "[Get an Generative AI API key](https://makersuite.google.com/app/apikey)"
@@ -71,33 +71,34 @@ def main():
 
         if prompt := st.chat_input():
 
-                genai.configure(api_key=google_api_key)
-                ## Function to load OpenAI model and get respones
-                model = genai.GenerativeModel('gemini-pro-vision')
-                chat = model.start_chat(history=[])
-                
-                if uploaded_file is None:
-                    st.info("Please add upload image to continue conversation.")
-                    st.stop()
-
-                response=get_gemini_response(prompt,image)
-                # Add user query and response to session state chat history
-                
-                st.session_state['chat_history'].append(("You", prompt))
-                st.subheader("The Response is")
-                st.write(response)
-                # res=[]
-                # for chunk in response:
-                #     st.write(chunk.text)
-                #     res.append(chunk.text)
-                
-                st.session_state['chat_history'].append(("Bot", response))
-                
-        if st.session_state['chat_history']:
-            st.subheader("The Chat History is")
+            genai.configure(api_key=google_api_key)
+            ## Function to load OpenAI model and get respones
+            model = genai.GenerativeModel('gemini-pro-vision')
+            chat = model.start_chat(history=[])
             
-            for role, text in st.session_state['chat_history']:
-                st.write(f"{role}: {text}")
+            if uploaded_file is None:
+                st.info("Please add upload image to continue conversation.")
+                st.stop()
+
+            response=get_gemini_response(prompt,image)
+            # Add user query and response to session state chat history
+            
+            st.session_state['chat_history'].append(("You", prompt))
+            st.subheader("The Response is")
+            st.write(response)
+            # res=[]
+            # for chunk in response:
+            #     st.write(chunk.text)
+            #     res.append(chunk.text)
+            
+            st.session_state['chat_history'].append(("Bot", response))
+        with st.sidebar:
+            with st.expander("history", expanded=False):        
+                if st.session_state['chat_history']:
+                    "The Chat History is"
+                    
+                    for role, text in st.session_state['chat_history']:
+                        st.write(f"{role}: {text}")
 if __name__ == "__main__":
     main()    
 

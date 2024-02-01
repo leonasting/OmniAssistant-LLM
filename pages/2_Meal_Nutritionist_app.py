@@ -50,10 +50,11 @@ You are an expert in nutritionist where you need to see the food items from the 
 
 def main():
     st.set_page_config(page_title="Meal Nutritionist app")
+    google_api_key = None
     if 'google_api_key'in  st.session_state:
         google_api_key = st.session_state['google_api_key']
 
-    with st.sidebar:
+    with st.expander("Settings", expanded=True):
         if not google_api_key:
             google_api_key = st.text_input("Generative API Key", key="google_api_key", type="password")
             "[Get an Generative AI API key](https://makersuite.google.com/app/apikey)"

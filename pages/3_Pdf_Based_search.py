@@ -77,7 +77,10 @@ def user_input(user_question):
 def main():
     st.set_page_config("Chat PDF")
     google_api_key = None
-    with st.sidebar:
+    if 'google_api_key'in  st.session_state:
+        google_api_key = st.session_state['google_api_key']
+
+    with st.expander("Settings", expanded=True):
         if not google_api_key:
             "Please Update the API Key to use the app"
             google_api_key = st.text_input("Generative API Key", key="google_api_key", type="password")
@@ -91,6 +94,7 @@ def main():
             st.stop()
         else:
             genai.configure(api_key=google_api_key)
+            st.session_state['google_api_key'] = google_api_key
 
     if google_api_key:
         os.environ['GOOGLE_API_KEY'] = google_api_key
