@@ -5,11 +5,12 @@ Omni Assistant is a project that utilizes the power of Gemini Generative AI LLM 
 
 This projects is based out of the tutorials provided by Krish Naik video on [Generative AI Google Gemini Pro Crash Course With End To End Projects](https://www.youtube.com/watch?v=1ICRLYtkmNU)
 
-![Omni Layout](https://github.com/leonasting/OmniAssistant-LLM/blob/main/images/omni%20layout.jpeg)
 
 ## Demo
-![ATS Demo](https://github.com/leonasting/OmniAssistant-LLM/blob/main/images/omni%20layout.jpeg)
 The project is published over steamlit public cloud on this [link](https://omni-llm.streamlit.app/) 
+![ATS Demo](https://github.com/leonasting/OmniAssistant-LLM/blob/main/images/Resume%20Notes.jpeg)
+
+![Omni Layout](https://github.com/leonasting/OmniAssistant-LLM/blob/main/images/omni%20layout.jpeg)
 
 ## Use Cases
 
