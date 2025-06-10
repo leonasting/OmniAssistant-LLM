@@ -12,6 +12,11 @@ The project is published over steamlit public cloud on this [link](https://omni-
 
 ![Omni Layout](https://github.com/leonasting/OmniAssistant-LLM/blob/main/images/omni%20layout.jpeg)
 
+# To run locally
+```
+streamlit run Chatbot.py
+```
+
 ## Use Cases
 
 ### 1. Chatbot - General Query with Chatbot using Gemini (Text Input)
